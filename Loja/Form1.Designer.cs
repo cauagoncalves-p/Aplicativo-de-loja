@@ -50,6 +50,9 @@
             this.dtpDataCadastro = new System.Windows.Forms.DateTimePicker();
             this.lboDados = new System.Windows.Forms.ListBox();
             this.btnAdicionar = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
+            this.btnDeletar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblID
@@ -64,6 +67,7 @@
             // 
             // txtID
             // 
+            this.txtID.Enabled = false;
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(24, 38);
             this.txtID.Name = "txtID";
@@ -244,7 +248,7 @@
             // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(76, 727);
+            this.btnAdicionar.Location = new System.Drawing.Point(24, 725);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(75, 23);
             this.btnAdicionar.TabIndex = 22;
@@ -252,11 +256,45 @@
             this.btnAdicionar.UseVisualStyleBackColor = true;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Location = new System.Drawing.Point(106, 725);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnAtualizar.TabIndex = 23;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
+            // 
+            // btnDeletar
+            // 
+            this.btnDeletar.Location = new System.Drawing.Point(187, 725);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletar.TabIndex = 24;
+            this.btnDeletar.Text = "Excluir";
+            this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Enabled = false;
+            this.btnLimpar.Location = new System.Drawing.Point(280, 725);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpar.TabIndex = 25;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 771);
+            this.Controls.Add(this.btnLimpar);
+            this.Controls.Add(this.btnDeletar);
+            this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.lboDados);
             this.Controls.Add(this.dtpDataCadastro);
@@ -310,6 +348,9 @@
         private System.Windows.Forms.DateTimePicker dtpDataCadastro;
         private System.Windows.Forms.ListBox lboDados;
         private System.Windows.Forms.Button btnAdicionar;
+        private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.Button btnDeletar;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }
 

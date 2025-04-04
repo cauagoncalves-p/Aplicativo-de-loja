@@ -40,6 +40,8 @@ namespace Loja
             {
                 return;
             }
+
+            btnLimpar.Enabled = true;
             FuncionariosRow item = lboDados.SelectedItem as FuncionariosRow;
             txtID.Text = item.Codigo.ToString();
             txtNome.Text = item.Nome;
@@ -48,7 +50,7 @@ namespace Loja
             txtCidade.Text = item.Cidade;
             txtEstado.Text = item.Estado;
             txtCep.Text = item.CEP;
-            txtTelefone.Text = item.Telefone.ToString("(##) #####-####");
+            txtTelefone.Text = item.Telefone.ToString();
             txtObservacao.Text = item.Observacao;
             dtpDataCadastro.Value = item.DataCadastro;
 
@@ -57,6 +59,7 @@ namespace Loja
         }
         private void LimparTela() 
         {
+            txtID.Clear();
             txtNome.Clear();
             txtBairro.Clear();
             txtCidade.Clear();
@@ -88,6 +91,54 @@ namespace Loja
             LimparTela();
 
 
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            if (lboDados.SelectedItem == null) return; //fimalgoritmo
+                                                        // obtendo o elemento selecionado
+            FuncionariosRow dadoParaAtualizacao = lboDados.SelectedItem as FuncionariosRow;
+            FuncionariosTableAdapter dados = new FuncionariosTableAdapter();
+            string nome = txtNome.Text;
+            string endereco = txtEndereco.Text;
+            string cidade = txtCidade.Text;
+            string bairro = txtBairro.Text;
+            string cep = txtCep.Text;
+            string estado = txtEstado.Text;
+            int telefone = int.Parse(txtTelefone.Text);
+            DateTime dateTime = dtpDataCadastro.Value;
+            string observacao = txtObservacao.Text;
+            dadoParaAtualizacao.Nome = nome;
+            dadoParaAtualizacao.Endereco = endereco;
+            dadoParaAtualizacao.Bairro = bairro;
+            dadoParaAtualizacao.Cidade = cidade;
+            dadoParaAtualizacao.Estado = estado;
+            dadoParaAtualizacao.CEP = cep;
+            dadoParaAtualizacao.Telefone = telefone;
+            dadoParaAtualizacao.Observacao = observacao;
+            dadoParaAtualizacao.DataCadastro = dateTime;
+            dados.Update(dadoParaAtualizacao);
+            atualizarLista();
+            LimparTela();
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            if (lboDados.SelectedItem == null) return;
+
+            FuncionariosRow dadosParaExcluir = lboDados.SelectedItem as FuncionariosRow;
+            FuncionariosTableAdapter dados = new FuncionariosTableAdapter();
+
+            dados.Delete(dadosParaExcluir.Codigo, dadosParaExcluir.Nome, dadosParaExcluir.Telefone, dadosParaExcluir.DataCadastro);
+            atualizarLista();
+            LimparTela();
+
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            atualizarLista();
+            LimparTela();
         }
     }
 }
