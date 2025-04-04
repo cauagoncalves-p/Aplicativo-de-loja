@@ -53,10 +53,8 @@ namespace Loja
             txtTelefone.Text = item.Telefone.ToString();
             txtObservacao.Text = item.Observacao;
             dtpDataCadastro.Value = item.DataCadastro;
-
-
-
         }
+
         private void LimparTela() 
         {
             txtID.Clear();
@@ -140,5 +138,7 @@ namespace Loja
             atualizarLista();
             LimparTela();
         }
+
+
     }
 }

@@ -244,6 +244,7 @@
             this.lboDados.Name = "lboDados";
             this.lboDados.Size = new System.Drawing.Size(292, 706);
             this.lboDados.TabIndex = 21;
+          
             this.lboDados.SelectedValueChanged += new System.EventHandler(this.lboDados_SelectedValueChanged);
             // 
             // btnAdicionar
